@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">APP_HW</string>
+
+    <string name="hello_world">Ja sei bulir nas variáveis!</string>
+    <string name="action_settings">Settings</string>
+    <string name="teste">Mais uma label</string>
+    <string name="title_activity_new">NewActivity</string>
+    <string name="title_activity_target">TargetActivity</string>
+</resources>
