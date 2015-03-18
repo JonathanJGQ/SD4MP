@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Reserva_Laboratorio</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_nome">Insira seu nome</string>
+    <string name="hint_siape">Insira o SIAPE</string>
+    <string name="hint_email">Insira seu Email</string>
+</resources>
