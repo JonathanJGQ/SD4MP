@@ -1,9 +1,19 @@
 package br.ufc.dc.sd4mp.reserva_laboratorio;
 
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.TimePickerDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+import java.util.Calendar;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -36,4 +46,17 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void showDatePickerDialog(View view){
+        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment.setData((EditText) findViewById(R.id.editText4));
+        newFragment.show(getFragmentManager(), "datePicker");
+    }
+    public void showTimePickerDialog(View view){
+        TimePickerFragment newFragment = new TimePickerFragment();
+        newFragment.setHour((EditText) findViewById(R.id.editText5));
+        newFragment.show(getFragmentManager(),"timePicker");
+    }
+
 }
+
+
