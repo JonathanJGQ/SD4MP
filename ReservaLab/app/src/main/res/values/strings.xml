@@ -6,4 +6,12 @@
     <string name="hint_nome">Insira seu nome</string>
     <string name="hint_siape">Insira o SIAPE</string>
     <string name="hint_email">Insira seu Email</string>
+    <string name="title_activity_main_activity2">MainActivity2</string>
+    <string-array name="laboratorios">
+        <item>LEC01</item>
+        <item>LEC02</item>
+        <item>LCC01</item>
+    </string-array>
+
+
 </resources>
