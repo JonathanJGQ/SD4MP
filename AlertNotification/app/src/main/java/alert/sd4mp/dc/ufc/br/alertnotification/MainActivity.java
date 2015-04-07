@@ -1,5 +1,6 @@
 package alert.sd4mp.dc.ufc.br.alertnotification;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -45,7 +46,9 @@ public class MainActivity extends ActionBarActivity {
         CheckBox check = (CheckBox) findViewById(R.id.checkBox);
 
         if (check.isChecked() == true) {
-            BateryChangeReceiver r = new BateryChangeReceiver();
+            Intent i = new Intent(Intent.ACTION_BATTERY_CHANGED);
+            i.setAction("br.ufc.dc.ck122.action.BATTERY_CHANGED");
+            sendBroadcast(i);
         }
     }
 
@@ -53,7 +56,9 @@ public class MainActivity extends ActionBarActivity {
         CheckBox check = (CheckBox) findViewById(R.id.checkBox2);
 
         if (check.isChecked() == true) {
-            AirplaneModeReceiver r = new AirplaneModeReceiver();
+            Intent i = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+            i.setAction("br.ufc.dc.ck122.action.AIRPLANE");
+            sendBroadcast(i);
         }
     }
 
@@ -61,7 +66,9 @@ public class MainActivity extends ActionBarActivity {
         CheckBox check = (CheckBox) findViewById(R.id.checkBox3);
 
         if (check.isChecked() == true) {
-            PowerConnectedReceiver r = new PowerConnectedReceiver();
+            Intent i = new Intent(Intent.ACTION_POWER_CONNECTED);
+            i.setAction("br.ufc.dc.ck122.action.POWER_CONNECTED");
+            sendBroadcast(i);
         }
     }
 
@@ -69,8 +76,11 @@ public class MainActivity extends ActionBarActivity {
         CheckBox check = (CheckBox) findViewById(R.id.checkBox4);
 
         if (check.isChecked() == true) {
-            PowerDisconnectedReceiver r = new PowerDisconnectedReceiver();
+            Intent i = new Intent(Intent.ACTION_POWER_DISCONNECTED);
+            i.setAction("br.ufc.dc.ck122.action.POWER_DISCONNECTED");
+            sendBroadcast(i);
         }
+
     }
 
 
