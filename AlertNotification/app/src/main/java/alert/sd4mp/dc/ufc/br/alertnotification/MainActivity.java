@@ -13,12 +13,13 @@ import java.util.zip.CheckedInputStream;
 
 public class MainActivity extends ActionBarActivity {
 
+    static int[] v = {0,0,0,0};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,43 +43,36 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void mudancaBateria(View view){
-        CheckBox check = (CheckBox) findViewById(R.id.checkBox);
+    public void checkPress(View view){
 
-        if (check.isChecked() == true) {
-            Intent i = new Intent(Intent.ACTION_BATTERY_CHANGED);
-            i.setAction("br.ufc.dc.ck122.action.BATTERY_CHANGED");
-            sendBroadcast(i);
+        CheckBox box1 = (CheckBox) findViewById(R.id.checkBox);
+        CheckBox box2 = (CheckBox) findViewById(R.id.checkBox2);
+        CheckBox box3 = (CheckBox) findViewById(R.id.checkBox3);
+        CheckBox box4 = (CheckBox) findViewById(R.id.checkBox4);
+
+        if(box1.isChecked() == true){
+            v[0] = 1;
         }
-    }
-
-    public void modoAviao(View view){
-        CheckBox check = (CheckBox) findViewById(R.id.checkBox2);
-
-        if (check.isChecked() == true) {
-            Intent i = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-            i.setAction("br.ufc.dc.ck122.action.AIRPLANE");
-            sendBroadcast(i);
+        else{
+            v[0] = 0;
         }
-    }
-
-    public void carregadorConectado(View view){
-        CheckBox check = (CheckBox) findViewById(R.id.checkBox3);
-
-        if (check.isChecked() == true) {
-            Intent i = new Intent(Intent.ACTION_POWER_CONNECTED);
-            i.setAction("br.ufc.dc.ck122.action.POWER_CONNECTED");
-            sendBroadcast(i);
+        if(box2.isChecked() == true){
+            v[1] = 1;
         }
-    }
-
-    public void carregadorDesconectado(View view){
-        CheckBox check = (CheckBox) findViewById(R.id.checkBox4);
-
-        if (check.isChecked() == true) {
-            Intent i = new Intent(Intent.ACTION_POWER_DISCONNECTED);
-            i.setAction("br.ufc.dc.ck122.action.POWER_DISCONNECTED");
-            sendBroadcast(i);
+        else{
+            v[1] = 0;
+        }
+        if(box3.isChecked() == true){
+            v[2] = 1;
+        }
+        else{
+            v[2] = 0;
+        }
+        if(box4.isChecked() == true){
+            v[3] = 1;
+        }
+        else{
+            v[3] = 0;
         }
 
     }

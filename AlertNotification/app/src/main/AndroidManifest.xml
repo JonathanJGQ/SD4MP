@@ -19,30 +19,12 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="BateryChangeReceiver">
+        <receiver android:name=".MyBroadcastReceiver">
             <intent-filter>
-                <action android:name="br.ufc.dc.ck122.action.BATTERY_CHANGED"/>
-            </intent-filter>
-        </receiver>
-
-        <receiver android:name="PowerConnectedReceiver">
-            <intent-filter>
-                <action android:name="br.ufc.dc.ck122.action.POWER_CONNECTED"/>
-            </intent-filter>
-        </receiver>
-
-        <receiver android:name=".PowerDisconnectedReceiver">
-            <intent-filter>
-                <action android:name="br.ufc.dc.ck122.action.POWER_DISCONNECTED">
-                </action>
-            </intent-filter>
-        </receiver>
-
-        <receiver android:name="AirplaneModeReceiver">
-            <intent-filter>
-
-                <action android:name="br.ufc.dc.ck122.action.AIRPLANE">
-                </action>
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </receiver>
 
