@@ -15,7 +15,8 @@
         android:layout_marginStart="53dp"
         android:layout_alignTop="@+id/button2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="startOnClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -27,5 +28,6 @@
         android:layout_marginEnd="47dp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="stopOnClick"/>
 </RelativeLayout>
