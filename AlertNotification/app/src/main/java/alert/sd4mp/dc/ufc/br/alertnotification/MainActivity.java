@@ -1,5 +1,6 @@
 package alert.sd4mp.dc.ufc.br.alertnotification;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,12 +13,13 @@ import java.util.zip.CheckedInputStream;
 
 public class MainActivity extends ActionBarActivity {
 
+    static int[] v = {0,0,0,0};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -41,36 +43,38 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void mudancaBateria(View view){
-        CheckBox check = (CheckBox) findViewById(R.id.checkBox);
+    public void checkPress(View view){
 
-        if (check.isChecked() == true) {
-            BateryChangeReceiver r = new BateryChangeReceiver();
+        CheckBox box1 = (CheckBox) findViewById(R.id.checkBox);
+        CheckBox box2 = (CheckBox) findViewById(R.id.checkBox2);
+        CheckBox box3 = (CheckBox) findViewById(R.id.checkBox3);
+        CheckBox box4 = (CheckBox) findViewById(R.id.checkBox4);
+
+        if(box1.isChecked() == true){
+            v[0] = 1;
         }
-    }
-
-    public void modoAviao(View view){
-        CheckBox check = (CheckBox) findViewById(R.id.checkBox2);
-
-        if (check.isChecked() == true) {
-            AirplaneModeReceiver r = new AirplaneModeReceiver();
+        else{
+            v[0] = 0;
         }
-    }
-
-    public void carregadorConectado(View view){
-        CheckBox check = (CheckBox) findViewById(R.id.checkBox3);
-
-        if (check.isChecked() == true) {
-            PowerConnectedReceiver r = new PowerConnectedReceiver();
+        if(box2.isChecked() == true){
+            v[1] = 1;
         }
-    }
-
-    public void carregadorDesconectado(View view){
-        CheckBox check = (CheckBox) findViewById(R.id.checkBox4);
-
-        if (check.isChecked() == true) {
-            PowerDisconnectedReceiver r = new PowerDisconnectedReceiver();
+        else{
+            v[1] = 0;
         }
+        if(box3.isChecked() == true){
+            v[2] = 1;
+        }
+        else{
+            v[2] = 0;
+        }
+        if(box4.isChecked() == true){
+            v[3] = 1;
+        }
+        else{
+            v[3] = 0;
+        }
+
     }
 
 
