@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyNotes</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_activity_menu">activity_menu</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_menu">menu</string>
+    <string name="title_activity_listar">listar</string>
+</resources>
