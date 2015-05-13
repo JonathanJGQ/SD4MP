@@ -70,6 +70,7 @@ public class TarefaDAO extends SQLiteOpenHelper {
         Tarefa tarefa = null;
         if (result != null && result.getCount() > 0) {
             tarefa = new Tarefa();
+            result.moveToNext();
             tarefa.setId(result.getInt(0));
             tarefa.setTitulo(result.getString(1));
             tarefa.setDescricao(result.getString(2));

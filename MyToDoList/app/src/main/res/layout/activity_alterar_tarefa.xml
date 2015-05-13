@@ -110,6 +110,7 @@
         android:layout_alignTop="@+id/button8"
         android:layout_toLeftOf="@+id/button8"
         android:layout_toStartOf="@+id/button8"
+        android:onClick="deletarOnClick"
         />
 
 </RelativeLayout>

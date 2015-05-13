@@ -5,14 +5,39 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class AlterarTarefaActivity extends ActionBarActivity {
+
+    Tarefa t;
+    TarefaDAO dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alterar_tarefa);
+        EditText txtTitulo = (EditText) findViewById(R.id.editText3);
+        EditText txtDescricao = (EditText) findViewById(R.id.editText4);
+        EditText txtData = (EditText) findViewById(R.id.editText5);
+        CheckBox cbxStatus = (CheckBox) findViewById(R.id.checkBox);
+        int id = Integer.parseInt(getIntent().getStringExtra("id"));
+        dao = new TarefaDAO(this);
+        t = dao.consultarTarefa(id+1);
+
+        txtTitulo.setText(t.getTitulo());
+        txtDescricao.setText(t.getDescricao());
+        txtData.setText(t.getDataCriacao());
+        if(t.getId() == 1) {
+            cbxStatus.setChecked(true);
+        }
+        else{
+            cbxStatus.setChecked(false);
+        }
     }
 
 
@@ -39,6 +64,12 @@ public class AlterarTarefaActivity extends ActionBarActivity {
     }
 
     public void voltarOnClick(View view){
+        finish();
+    }
+
+    public void deletarOnClick(View view){
+        dao.deletarTarefa(t.getId() + 1);
+        Toast.makeText(this,"Tarefa excluida",Toast.LENGTH_SHORT);
         finish();
     }
 }

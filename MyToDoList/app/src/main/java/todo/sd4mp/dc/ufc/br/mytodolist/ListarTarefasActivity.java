@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -25,9 +26,25 @@ public class ListarTarefasActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_tarefas);
         tarefaDAO = new TarefaDAO(this);
-        pegarTarefas();
         status = getIntent().getStringExtra("status");
         ids = getIntent().getIntegerArrayListExtra("ids");
+        //pegarTarefas();
+        ListView lv = (ListView) findViewById(R.id.listView);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                alterarTarefa(position);
+            }
+        });
+    }
+
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        pegarTarefas();
     }
 
 
@@ -70,10 +87,10 @@ public class ListarTarefasActivity extends ActionBarActivity {
         lv.setAdapter(ad);
     }
 
-    public void alterarTarefa(View view){
-        int id;
+    public void alterarTarefa(int position){
+        String id;
         ListView lv = (ListView) findViewById(R.id.listView);
-        id = lv.getSelectedItemPosition();
+        id = String.valueOf(position);
         Intent t = new Intent(this,AlterarTarefaActivity.class);
         t.putExtra("id",id);
         startActivity(t);
