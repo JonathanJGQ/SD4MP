@@ -7,8 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity {
+
+    TarefaDAO tarefa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +50,29 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void listarTarefasPendentesClick(View view){
+        List<Tarefa> lista;
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        tarefa = new TarefaDAO(this);
+        lista = tarefa.listarTarefas(0);
+        for(int i=0;i<lista.size();i++){
+            ids.add(lista.get(i).getId());
+        }
         Intent t = new Intent(this,ListarTarefasActivity.class);
         t.putExtra("status","0");
+        t.putIntegerArrayListExtra("Ids",ids);
+        startActivity(t);
+    }
+    public void listarTarefasConcluidasClick(View view){
+        List<Tarefa> lista;
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        tarefa = new TarefaDAO(this);
+        lista = tarefa.listarTarefas(1);
+        for(int i=0;i<lista.size();i++){
+            ids.add(lista.get(i).getId());
+        }
+        Intent t = new Intent(this,ListarTarefasActivity.class);
+        t.putExtra("status","0");
+        t.putIntegerArrayListExtra("Ids",ids);
         startActivity(t);
     }
 }

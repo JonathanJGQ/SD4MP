@@ -1,10 +1,12 @@
 package todo.sd4mp.dc.ufc.br.mytodolist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -17,6 +19,7 @@ public class ListarTarefasActivity extends ActionBarActivity {
 
     TarefaDAO tarefaDAO;
     String status;
+    ArrayList<Integer> ids;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +27,7 @@ public class ListarTarefasActivity extends ActionBarActivity {
         tarefaDAO = new TarefaDAO(this);
         pegarTarefas();
         status = getIntent().getStringExtra("status");
-
+        ids = getIntent().getIntegerArrayListExtra("ids");
     }
 
 
@@ -65,5 +68,14 @@ public class ListarTarefasActivity extends ActionBarActivity {
         }
         ArrayAdapter<String> ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2,android.R.id.text1,titulos);
         lv.setAdapter(ad);
+    }
+
+    public void alterarTarefa(View view){
+        int id;
+        ListView lv = (ListView) findViewById(R.id.listView);
+        id = lv.getSelectedItemPosition();
+        Intent t = new Intent(this,AlterarTarefaActivity.class);
+        t.putExtra("id",id);
+        startActivity(t);
     }
 }

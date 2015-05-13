@@ -24,6 +24,10 @@
             android:name=".ListarTarefasActivity"
             android:label="@string/title_activity_listar_tarefas" >
         </activity>
+        <activity
+            android:name=".AlterarTarefaActivity"
+            android:label="@string/title_activity_alterar_tarefa" >
+        </activity>
     </application>
 
 </manifest>
