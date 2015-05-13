@@ -5,4 +5,5 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_inserir_tarefa">InserirTarefaActivity</string>
     <string name="title_activity_listar_tarefas">ListarTarefasActivity</string>
+    <string name="title_activity_alterar_tarefa">AlterarTarefaActivity</string>
 </resources>
