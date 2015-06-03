@@ -3,8 +3,10 @@ package br.ufc.dc.sd4mp.dcfacil;
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.app.Fragment;
+//import android.support.v4.app.Fragment;
+//import android.support.v4.app.FragmentManager;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -49,10 +51,28 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+
+        Fragment objFragment = null;
+
+        switch(position){
+            case(0):
+                objFragment = new inicio_Fragment();
+                break;
+            case(1):
+                objFragment = new calendario_Fragment();
+                break;
+            case(2):
+                objFragment = new noticia_Fragment();
+                break;
+            case(3):
+                objFragment = new sobre_Fragment();
+                break;
+
+        }
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(R.id.container, objFragment)
                 .commit();
     }
 
